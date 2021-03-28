@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="layout/template :: head"></div>
+    <title>Sesión - Detalles</title>
+</head>
+<body>
+    <div th:insert="layout/template :: header"></div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12">
+
+                <h1 name="id" th:text="Sesión + ' ' + ${sesion.id}"></h1>
+
+                <div class="card">
+                    <div class="card-body">
+                        <label>Fecha:</label>
+                        <span name="nombre" th:text="${sesion.fecha}"></span>
+                    </div>
+                </div>
+
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <label>Paciente:</label>
+                        <span name="paciente"th:text="${sesion.paciente.nombre} + ' ' + ${sesion.paciente.apellido}"></span>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <label>Precio facturado:</label>
+                        <span name="precio" th:text="${sesion.precioFacturado}"></span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <label>Notas:</label><br>
+                        <span name="notas" th:text="${sesion.notas}"></span>
+                    </div>
+
+                </div>
+                <br>
+
+
+                <a class="btn btn-primary" th:href="@{'/sesiones/' + ${sesion.id} + '/edicion'}">
+                    <i class="far fa-edit"></i> Editar
+                </a>
+                <a class="btn btn-primary" th:href="@{'/sesiones/'}">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </a>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

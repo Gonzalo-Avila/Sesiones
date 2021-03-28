@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <div th:insert="layout/template :: head"></div>
+        <title>Nuevo paciente</title>
+    </head>
+
+    <body>
+        <div th:insert="layout/template :: header"></div>
+        <h1>Nuevo paciente</h1>
+        <br>
+        <form th:action="@{/pacientes}" method="post" th:object="${paciente}">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+            <br>
+            <label>Apellido:</label>
+            <input type="text" name="apellido" th:field="*{apellido}"/>
+            <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
+            <br>
+            <label>DNI:</label>
+            <input type="text" name="dni" th:field="*{dni}"/>
+            <br>
+            <label>Fecha de nacimiento:</label>
+            <input type="date" name="fechaNacimiento" th:field="*{fechaNacimiento}"/>
+            <br>
+            <label>E-mail:</label>
+            <input type="email" name="email" th:field="*{email}"/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            <br>
+            <label>Teléfono:</label>
+            <input type="tel" name="telefono" th:field="*{telefono}"/>
+            <br>
+            <label>Detalles:</label>
+            <input type="text" name="detalles" th:field="*{detalles}"/>
+            <br>
+            <label>Estado de tratamiento:</label>
+            <select name="paciente" th:field="*{estadoTratamiento}">
+                <option th:each="estado: ${estados}"
+                        th:value="${estado}"
+                        th:text="${estado}"></option>
+            </select>
+            <input type="submit" name="guardar" value="guardar">
+        </form>
+
+        <a th:href="@{'/pacientes'}">Volver</a>
+
+
+    </body>
+</html>

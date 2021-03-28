@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <div th:insert="layout/template :: head"></div>
+        <title>Paciente - Detalles</title>
+    </head>
+    <body>
+        <div th:insert="layout/template :: header"></div>
+        <label>ID:</label>
+        <div name="id" th:text="${paciente.id}"></div>
+        <label>Nombre:</label>
+        <div name="nombre" th:text="${paciente.nombre} + ${paciente.apellido}"></div>
+        <label>DNI:</label>
+        <div name="dni"th:text="${paciente.dni}"></div>
+        <label>E-mail:</label>
+        <div name="email" th:text="${paciente.email}"></div>
+        <label>Teléfono:</label>
+        <div name="telefono" th:text="${paciente.telefono}"></div>
+        <label></label>
+        <div name="detalles" th:text="${paciente.detalles}"></div>
+        <label>Estado de tratamiento:</label>
+        <div name="detalles" th:text="${paciente.estadoTratamiento}"></div>
+
+    <a th:href="@{'/pacientes/' + ${paciente.id} + '/edicion'}">Editar</a>
+    </body>
+</html>

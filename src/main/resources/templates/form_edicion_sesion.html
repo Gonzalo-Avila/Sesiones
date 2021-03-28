@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="layout/template :: head"></div>
+    <title>Nueva sesión</title>
+</head>
+
+<body>
+<div th:insert="layout/template :: header"></div>
+<h1>Nueva sesión</h1>
+<br>
+<form th:action="@{'/sesiones/' + ${sesion.id}}" method="post" th:object="${sesion}">
+    <input type="hidden" name="id" th:field="*{id}"/>
+
+    <label>Fecha:</label>
+    <input type="date" name="fecha" th:field="*{fecha}"/>
+    <br>
+    <label>Notas:</label>
+    <input type="text" name="notas" th:field="*{notas}"/>
+    <br>
+    <label>Precio:</label>
+    <input type="text" name="dni" th:field="*{precioFacturado}"/>
+    <br>
+    <label>Paciente:</label>
+    <select name="paciente" th:field="*{paciente}">
+        <option th:each="pacient: ${pacientes}"
+                th:value="${pacient.id}"
+                th:text="${pacient.nombre} + ' ' + ${pacient.apellido}">Paciente</option>
+    </select>
+    <br>
+    <input type="submit" name="guardar" value="guardar">
+
+</form>
+<a th:href="@{'/sesiones/' + ${sesion.id}}">Volver</a>
+
+
+</body>
+</html>
