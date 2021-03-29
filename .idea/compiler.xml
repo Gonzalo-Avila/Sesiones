@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="alkemychallenge" target="10" />
+      <module name="alkemychallenge" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
