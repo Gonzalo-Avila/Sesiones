@@ -33,7 +33,7 @@
 
 				<configuration>
 					<jdkVersion>14</jdkVersion>
-					<appName>${heroku.appName}</appName>
+					<appName>sesions</appName>
 					<processTypes>
 						<web>java -jar $JAVA_OPTS -cp target/sesiones-jar-with-dependencies.jar</web>
 					</processTypes>
