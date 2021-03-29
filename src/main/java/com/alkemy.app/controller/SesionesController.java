@@ -1,22 +1,16 @@
 package com.alkemy.app.controller;
 
 import com.alkemy.app.filters.FiltroSesiones;
-import com.alkemy.app.model.EstadoTratamiento;
-import com.alkemy.app.model.Paciente;
 import com.alkemy.app.model.Sesion;
 import com.alkemy.app.repositories.PacientesDAO;
 import com.alkemy.app.repositories.SesionesDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.validation.Valid;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
