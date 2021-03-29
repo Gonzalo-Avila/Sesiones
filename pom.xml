@@ -8,6 +8,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
 			</plugin>
 
 			<plugin>
@@ -33,6 +34,7 @@
 
 				<configuration>
 					<jdkVersion>14</jdkVersion>
+					<appName>sesiones</appName>
 					<processTypes>
 						<web> java -Dserver.port=$PORT $JAVA_OPTS -jar target/sesiones-0.1.jar</web>
 					</processTypes>
