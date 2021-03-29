@@ -32,7 +32,7 @@
 				<version>3.0.4</version>
 
 				<configuration>
-					<appName>sesions</appName>
+					<jdkVersion>14</jdkVersion>
 					<processTypes>
 						<web> java -Dserver.port=$PORT $JAVA_OPTS -jar target/sesiones-0.1.jar</web>
 					</processTypes>
