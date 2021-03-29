@@ -25,27 +25,7 @@ public class PacientesController {
 
     @Autowired
     public PacientesDAO pacientesDAO;
-
-    /*
-    @GetMapping("pacientes")
-    public String mostrarPacientes(Model model,
-                                   @RequestParam(value = "paciente", required = false) String paciente,
-                                   @RequestParam(value = "dni", required = false) String dni,
-                                   @RequestParam(value = "estadoTratamiento", required = false)
-                                               EstadoTratamiento estadoTratamiento) {
-
-        System.out.println("Alguien pidió los pacientes");
-
-        List<Paciente> pacientes = pacientesDAO.findAll().stream()
-                .filter(p -> (estadoTratamiento == null ||
-                        p.getEstadoTratamiento().equals(estadoTratamiento)) &&
-                        (paciente == null || p.getNombre().contains(paciente) || p.getApellido().contains(paciente))
-                        && (dni == null || p.getDni().contains(dni))).collect(Collectors.toList());
-
-        model.addAttribute("estados", EstadoTratamiento.values());
-        model.addAttribute("pacientes",pacientes);
-        return "pacientes";
-    }*/
+    
     @GetMapping("pacientes")
     public String mostrarPacientes(FiltroPacientes filtro, Model model) {
 

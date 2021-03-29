@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service("userDetailsService")
 public class UsuarioService implements UserDetailsService {
@@ -28,7 +29,7 @@ public class UsuarioService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
 
-        var roles = new ArrayList<GrantedAuthority>();
+        List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
 
         for(Rol rol: usuario.getRoles()){
             roles.add(new SimpleGrantedAuthority("ROLE_" + rol.toString()));

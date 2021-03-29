@@ -30,8 +30,8 @@ public class UsuariosController {
     @PostMapping("usuarios")
     public String crearUsuario(Usuario usuario) {
         System.out.println("Alguien está creando un nuevo usuario");
+
         usuario.setPassword(EncripcionPassword.encriptar(usuario.getPassword()));
-        //usuario.setRoles(Arrays.asList(Rol.USER, Rol.ADMIN));
         usuariosDAO.save(usuario);
         return "redirect:/";
     }
