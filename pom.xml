@@ -3,12 +3,23 @@
 	<groupId>sesiones</groupId>
 	<artifactId>sesiones</artifactId>
 	<version>0.1</version>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<nonFilteredFileExtensions>
+						<nonFilteredFileExtension>properties</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+				</configuration>
 			</plugin>
 
 			<plugin>
@@ -35,12 +46,11 @@
 				<configuration>
 					<appName>${heroku.app}</appName>
 					<processTypes>
-						<web> java $JAVA_OPTS -jar target/sesiones-jar-with-dependencies.jar com.alkemy.app.app</web>
+						<web> java -Dserver.port=$PORT $JAVA_OPTS -jar target/sesiones-0.1.jar</web>
 					</processTypes>
 				</configuration>
 			</plugin>
 		</plugins>
-
 	</build>
 
 	<parent>
@@ -103,7 +113,12 @@
 			<version>8.4.1.jre8</version>
 		</dependency>
 
-	</dependencies>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.23</version>
+		</dependency>
 
+	</dependencies>
 
 </project>
