@@ -35,7 +35,7 @@
 				<configuration>
 					<appName>sesiones</appName>
 					<processTypes>
-						<web> java -Dserver.port=$PORT $JAVA_OPTS -jar target/sesiones-jar-with-dependencies.jar</web>
+						<web> java $JAVA_OPTS -jar target/sesiones-jar-with-dependencies.jar com.alkemy.app.app</web>
 					</processTypes>
 				</configuration>
 			</plugin>
