@@ -42,7 +42,7 @@
 				<configuration>
 					<appName>${heroku.appName}</appName>
 					<processTypes>
-						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.alkemy.app.app</web>
+						<web>java $JAVA_OPTS -cp target/sesiones-jar-with-dependencies.jar</web>
 					</processTypes>
 				</configuration>
 			</plugin>
