@@ -5,22 +5,61 @@
         <title>Paciente - Detalles</title>
     </head>
     <body>
-        <div th:insert="layout/template :: header"></div>
-        <label>ID:</label>
-        <div name="id" th:text="${paciente.id}"></div>
-        <label>Nombre:</label>
-        <div name="nombre" th:text="${paciente.nombre} + ${paciente.apellido}"></div>
-        <label>DNI:</label>
-        <div name="dni"th:text="${paciente.dni}"></div>
-        <label>E-mail:</label>
-        <div name="email" th:text="${paciente.email}"></div>
-        <label>Teléfono:</label>
-        <div name="telefono" th:text="${paciente.telefono}"></div>
-        <label></label>
-        <div name="detalles" th:text="${paciente.detalles}"></div>
-        <label>Estado de tratamiento:</label>
-        <div name="detalles" th:text="${paciente.estadoTratamiento}"></div>
+    <div th:insert="layout/template :: header"></div>
 
-    <a th:href="@{'/pacientes/' + ${paciente.id} + '/edicion'}">Editar</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 name="id" th:text="${paciente.id} + ' - ' + ${paciente.nombre} + ' ' + ${paciente.apellido}" ></h1>
+                <div class="card">
+                    <div class="card-body">
+                        <label>DNI:</label>
+                        <span name="dni"th:text="${paciente.dni}"></span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <label>E-mail:</label>
+                        <span name="email" th:text="${paciente.email}"></span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <label>Teléfono:</label>
+                        <span name="telefono" th:text="${paciente.telefono}"></span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <label>Detalles:</label>
+                        <span name="detalles" th:text="${paciente.detalles}"></span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <label>Estado de tratamiento:</label>
+                        <span name="estado" th:text="${paciente.estadoTratamiento}"></span>
+                    </div>
+                </div><br>
+
+                <div>
+                    <a class="btn btn-primary" th:href="@{'/pacientes/' + ${paciente.id} + '/edicion'}">
+                        <i class="far fa-edit"></i> Editar
+                    </a>
+                    <a class="btn btn-primary" th:href="@{'/pacientes/'}">
+                        <i class="fas fa-arrow-left"></i> Volver
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
     </body>
 </html>

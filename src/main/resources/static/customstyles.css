@@ -36,3 +36,9 @@
     opacity: 1;
     right: 0;
 }
+.homeLink{
+    width: 400px;
+    height: 100px;
+    font-size: x-large;
+    line-height: 90px;
+}

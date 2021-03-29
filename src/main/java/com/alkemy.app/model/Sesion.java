@@ -19,12 +19,12 @@ public class Sesion {
     @Id
     Long id;
 
-    @NotNull
+    @NotNull(message = "La sesión requiere un paciente")
     @ManyToOne
     @JoinColumn(name = "sesion_paciente")
     Paciente paciente;
 
-    @NotNull
+    @NotNull(message = "Por favor indicá una fecha")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "sesion_fecha")
     LocalDate fecha;

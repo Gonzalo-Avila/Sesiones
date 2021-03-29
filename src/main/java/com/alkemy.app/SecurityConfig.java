@@ -20,14 +20,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
         .withUser("admin").password("{noop}123456").roles("ADMIN","USER");
     }
-    /*
+
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-        http.authorizeRequests()
-                .antMatchers("/").hasRole("USER")
-                .antMatchers("/onlyadmins").hasRole("ADMIN");
+        http.authorizeRequests().antMatchers("/","/sesiones/**","/pacientes/**")
+                .hasAnyRole("ADMIN", "USER")
+                .and().formLogin().loginPage("/login");
     }
-     */
-
 
 }

@@ -14,16 +14,17 @@
     </head>
     <body>
         <div th:insert="layout/template :: header"></div>
-        <div class="container" align="center">
+        <div class="container pt-2" align="center">
 
             <div class="row">
                 <div class="col-12">
+                    <h2>Listado de pacientes</h2>
                     <form th:action="@{/pacientes/}" method="get" th:object="${filtro}">
-                        <label>Nombre</label>
+                        <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" name="nombre" id="nombre" th:field="*{nombre}"/>
-                        <label>DNI</label>
+                        <label for="dni" class="form-label">DNI</label>
                         <input type="text" name="dni" id="dni" th:field="*{dni}">
-                        <label>Estado de tratamiento</label>
+                        <label for="estado" class="form-label">Estado de tratamiento</label>
                         <select name="estadoTratamiento" id="estado" th:field="*{estadoTratamiento}">
                             <option th:each="estado: ${estados}"
                                     th:value="${estado}"
@@ -41,7 +42,7 @@
                             <th>Teléfono</th>
                             <th>Detalles</th>
                             <th>Estado de tratamiento</th>
-                            <th>Editar</th>
+                            <th>Detalles</th>
                         </tr>
                         <tr th:each="paciente: ${pacientes}">
                             <td th:text="${paciente.id}"></td>
@@ -51,10 +52,12 @@
                             <td th:text="${paciente.telefono}"></td>
                             <td th:text="${paciente.detalles}"></td>
                             <td th:text="${paciente.estadoTratamiento}"></td>
-                            <td><a th:href="@{'/pacientes/' + ${paciente.id}}">Click aca</a></td>
+                            <td><a th:href="@{'/pacientes/' + ${paciente.id}}">
+                                <i class="fas fa-arrow-alt-circle-right"></i>
+                            </a></td>
                         </tr>
                     </table>
-                    <a class="btn btn-primary" href="/sesiones/nueva">
+                    <a class="btn btn-primary" href="/pacientes/nuevo">
                         <i class="fas fa-user-plus"></i> Cargar nuevo paciente
                     </a>
                     <a class="btn btn-primary" th:href="@{'/'}">

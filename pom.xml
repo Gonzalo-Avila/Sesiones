@@ -53,10 +53,15 @@
 		</dependency>
 
 		<!--Bootstrap, etc-->
-		<dependency>
+		<!--dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
 			<version>4.6.0-1</version>
+		</dependency-->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>5.0.0-beta3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>

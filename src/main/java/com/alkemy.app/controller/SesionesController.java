@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -87,16 +89,27 @@ public class SesionesController {
     }
 
     @PostMapping("sesiones/{id}")
-    public String editarSesion(Sesion sesion) {
+    public String editarSesion(@Valid Sesion sesion, Errors errores, Model model) {
         System.out.println("Alguien está guardando la edición de una sesión");
+
+        if(errores.hasErrors()){
+            model.addAttribute("pacientes", pacientesDAO.findAll());
+            return "form_edicion_sesion";
+        }
 
         sesionesDAO.save(sesion);
         return "redirect:/sesiones/{id}";
     }
 
     @PostMapping("sesiones")
-    public String crearSesion(Sesion sesion) {
+    public String crearSesion(@Valid Sesion sesion, Errors errores, Model model) {
         System.out.println("Alguien está guardando una nueva sesión");
+
+        if(errores.hasErrors()){
+            model.addAttribute("pacientes", pacientesDAO.findAll());
+            return "form_nueva_sesion";
+        }
+
 
         sesionesDAO.save(sesion);
         return "redirect:/sesiones";

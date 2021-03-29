@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <div th:insert="layout/template :: head"></div>
-    <title>Nueva sesión</title>
-</head>
+    <head>
+        <div th:insert="layout/template :: head"></div>
+        <title>Nueva sesión</title>
+    </head>
 
-<body>
-<div th:insert="layout/template :: header"></div>
-<h1>Nueva sesión</h1>
-<br>
-<form th:action="@{'/sesiones/' + ${sesion.id}}" method="post" th:object="${sesion}">
-    <input type="hidden" name="id" th:field="*{id}"/>
+    <body>
+    <div th:insert="layout/template :: header"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Editar sesión</h1>
+                <form class="g-3" th:action="@{'/sesiones/' + ${sesion.id}}" method="post" th:object="${sesion}">
 
-    <label>Fecha:</label>
-    <input type="date" name="fecha" th:field="*{fecha}"/>
-    <br>
-    <label>Notas:</label>
-    <input type="text" name="notas" th:field="*{notas}"/>
-    <br>
-    <label>Precio:</label>
-    <input type="text" name="dni" th:field="*{precioFacturado}"/>
-    <br>
-    <label>Paciente:</label>
-    <select name="paciente" th:field="*{paciente}">
-        <option th:each="pacient: ${pacientes}"
-                th:value="${pacient.id}"
-                th:text="${pacient.nombre} + ' ' + ${pacient.apellido}">Paciente</option>
-    </select>
-    <br>
-    <input type="submit" name="guardar" value="guardar">
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha</label>
+                        <input id="fecha" class="form-control" type="date" name="fecha" th:field="*{fecha}"/>
+                        <span th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}" style="color: red"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="notas" class="form-label">Notas</label>
+                        <textarea id="notas" class="form-control" type="text" name="notas" rows="3" th:field="*{notas}"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Precio</label>
+                        <input id="precio" class="form-control" type="text" name="precio" th:field="*{precioFacturado}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="paciente" class="form-label">Paciente</label>
+                        <select id="paciente" class="form-select" name="paciente" th:field="*{paciente}">
+                            <option selected th:value="null">Elegí un paciente</option>
+                            <option th:each="pacient: ${pacientes}"
+                                    th:value="${pacient.id}"
+                                    th:text="${pacient.nombre} + ' ' + ${pacient.apellido}">Paciente</option>
+                        </select>
+                        <span th:if="${#fields.hasErrors('paciente')}" th:errors="*{paciente}" style="color: red"></span>
+                    </div>
+                    <input class="btn btn-success" type="submit" name="cargar" value="Cargar">
+                    <a class="btn btn-primary" th:href="@{'/sesiones/' + ${sesion.id}}">
+                        <i class="fas fa-arrow-left"></i> Volver
+                    </a>
+                </form>
 
-</form>
-<a th:href="@{'/sesiones/' + ${sesion.id}}">Volver</a>
 
+            </div>
+        </div>
 
-</body>
+    </div>
+
+    </body>
 </html>

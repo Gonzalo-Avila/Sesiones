@@ -18,11 +18,11 @@
             <div class="col-12">
                 <h2>Listado de sesiones</h2>
                 <form th:action="@{/sesiones/}" method="get" th:object="${filtro}">
-                    <label>Desde</label>
-                    <input th:type="date" name="desde" id="desde" th:field="*{fechaDesde}"/>
-                    <label>Hasta</label>
-                    <input th:type="date" name="hasta" id="hasta" th:field="*{fechaHasta}">
-                    <label>Paciente</label>
+                    <label for="desde" class="form-label">Desde</label>
+                    <input th:type="date" name="desde" id="desde"  th:field="*{fechaDesde}"/>
+                    <label for="hasta" class="form-label">Hasta</label>
+                    <input th:type="date" name="hasta" id="hasta"  th:field="*{fechaHasta}">
+                    <label for="nombrePaciente" class="form-label">Paciente</label>
                     <input type="text" name="nombrePaciente" id="nombrePaciente" th:field="*{nombrePaciente}">
                     <input type="submit" value="Filtrar">
                     <input type="button" value="Limpiar filtro" onclick="limpiarFiltros()">
@@ -31,17 +31,15 @@
                     <tr>
                         <th>ID</th>
                         <th>Fecha</th>
-                        <th>Notas</th>
-                        <th>Precio facturado</th>
                         <th>Paciente</th>
+                        <th>Precio facturado</th>
                         <th>Detalles</th>
                     </tr>
                     <tr th:each="sesion: ${sesiones}">
                         <td th:text="${sesion.id}"></td>
                         <td th:text="${sesion.fecha}"></td>
-                        <td th:text="${sesion.notas}"></td>
-                        <td th:text="${sesion.precioFacturado}"></td>
                         <td th:if="${sesion.paciente != null}" th:text="${sesion.paciente.nombre} + ' ' + ${sesion.paciente.apellido}"></td>
+                        <td th:text="${sesion.precioFacturado}"></td>
                         <td><a th:href="@{'/sesiones/' + ${sesion.id}}">
                             <i class="fas fa-arrow-alt-circle-right"></i>
                         </a></td>

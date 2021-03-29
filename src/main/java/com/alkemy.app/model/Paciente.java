@@ -22,7 +22,6 @@ public class Paciente {
     String nombre;
 
     @NotEmpty(message = "El apellido no puede estar vacío")
-    @NotEmpty
     @Column(name = "paciente_apellido")
     String apellido;
 
