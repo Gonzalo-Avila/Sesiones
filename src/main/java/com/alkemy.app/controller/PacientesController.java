@@ -108,7 +108,7 @@ public class PacientesController {
         }
 
         pacientesDAO.save(paciente);
-        return "home";
+        return "redirect:/pacientes";
     }
 
 }
