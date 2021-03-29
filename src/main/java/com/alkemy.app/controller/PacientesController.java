@@ -25,7 +25,7 @@ public class PacientesController {
 
     @Autowired
     public PacientesDAO pacientesDAO;
-    
+
     @GetMapping("pacientes")
     public String mostrarPacientes(FiltroPacientes filtro, Model model) {
 
