@@ -1,0 +1,51 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>sesiones</groupId>
+	<artifactId>sesiones</artifactId>
+	<version>0.1</version>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>14</source>
+					<target>14</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+					<mainClass>com.alkemy.app.app</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>3.0.4</version>
+
+				<configuration>
+					<jdkVersion>14</jdkVersion>
+					<appName>sesiones</appName>
+					<processTypes>
+						<web> java -Dserver.port=$PORT $JAVA_OPTS -jar target/sesiones-0.1.jar</web>
+					</processTypes>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+	
+</project>
