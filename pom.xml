@@ -40,9 +40,10 @@
 				<version>3.0.4</version>
 
 				<configuration>
+					<jdkVersion>14</jdkVersion>
 					<appName>${heroku.appName}</appName>
 					<processTypes>
-						<web>java $JAVA_OPTS -cp target/sesiones-jar-with-dependencies.jar</web>
+						<web>java -jar $JAVA_OPTS -cp target/sesiones-jar-with-dependencies.jar</web>
 					</processTypes>
 				</configuration>
 			</plugin>
