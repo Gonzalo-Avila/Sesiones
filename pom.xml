@@ -33,7 +33,7 @@
 				<version>3.0.4</version>
 
 				<configuration>
-					<appName>sesiones</appName>
+					<appName>${heroku.app}</appName>
 					<processTypes>
 						<web> java $JAVA_OPTS -jar target/sesiones-jar-with-dependencies.jar com.alkemy.app.app</web>
 					</processTypes>
@@ -42,12 +42,6 @@
 		</plugins>
 
 	</build>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-	</properties>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -108,13 +102,6 @@
 			<artifactId>mssql-jdbc</artifactId>
 			<version>8.4.1.jre8</version>
 		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.23</version>
-		</dependency>
-
 
 	</dependencies>
 
