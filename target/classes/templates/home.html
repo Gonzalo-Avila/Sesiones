@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ES" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <div th:insert="layout/template :: head"></div>
+    <title>Home</title>
+</head>
+<body>
+    <div th:insert="layout/template :: header"></div>
+
+    <div class="container" align="center" >
+        <div class="row">
+            <div class="col-12">
+                <a href="/sesiones" class="animatedLink homeLink" style="margin:4px">
+                    <i class="fas fa-couch"></i> <span>Sesiones</span>
+                </a>
+                <a href="/pacientes" class="animatedLink homeLink" style="margin:4px">
+                    <i class="fas fa-male"></i> <span>Pacientes</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+</body>
+</html>
