@@ -11,25 +11,17 @@
 			</plugin>
 
 			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+					<mainClass>com.alkemy.app.app</mainClass>
+				</configuration>
 				<executions>
 					<execution>
-						<id>Sesions</id>
-						<phase>package</phase>
 						<goals>
-							<goal>single</goal>
+							<goal>repackage</goal>
 						</goals>
-						<configuration>
-							<descriptorRefs>
-								<descriptorRef>jar-with-dependencies</descriptorRef>
-							</descriptorRefs>
-							<archive>
-								<manifest>
-									<mainClass>com.alkemy.app.app</mainClass>
-								</manifest>
-							</archive>
-							<finalName>${project.artifactId}</finalName>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
