@@ -5,23 +5,17 @@
 	<version>0.1</version>
 	<build>
 		<plugins>
-			
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
 				<configuration>
-					<fork>true</fork>
-					<mainClass>com.alkemy.app.app</mainClass>
+					<source>14</source>
+					<target>14</target>
 				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 
+		
 			<plugin>
 				<groupId>com.heroku.sdk</groupId>
 				<artifactId>heroku-maven-plugin</artifactId>
