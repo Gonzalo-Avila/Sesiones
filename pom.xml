@@ -20,8 +20,9 @@
 				<version>3.0.4</version>
 
 				<configuration>
+					<appName>${heroku.appName}</appName>
 					<processTypes>
-						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* app</web>
+						<web>java $JAVA_OPTS -cp target/classes:target/dependency/* com.alkemy.app.app</web>
 					</processTypes>
 				</configuration>
 			</plugin>
