@@ -35,7 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests().antMatchers("/","/sesiones/**","/pacientes/**")
                 .hasAnyRole("ADMIN", "USER")
-                .and().formLogin().loginPage("/login");
+                .and().formLogin().loginPage("/login").and().rememberMe().
+                rememberMeParameter("remember-me").key("uniqueAndSecret");
     }
 
 }
