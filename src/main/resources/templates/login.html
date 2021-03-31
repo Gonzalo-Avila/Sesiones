@@ -26,15 +26,18 @@
                         <div class="mb-3">
                             <label for="remember-me">Recordarme</label>
                             <input type="checkbox" id="remember-me" name="remember-me" />
-                        </div>
-                        <br><br>
 
+                        </div>
+                        <br>
                         <input class="btn btn-primary mb-3" type="submit" value="Iniciar sesión">
                     </form>
+                    <br>
+                    <span th:if="${param.error}" class="text-danger">Usuario o contraseña incorrectos</span>
                 </div>
                 <div class="col-4"></div>
             </div>
         </div>
 
+        <footer th:replace="layout/template :: footer"></footer>
     </body>
 </html>
